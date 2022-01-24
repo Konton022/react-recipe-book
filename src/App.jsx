@@ -13,7 +13,7 @@ function App() {
                 <Header />
                 <main className='container content'>
                     <Routes>
-                        <Route path='/' element={<Home />} />
+                        <Route exact path='/' element={<Home />} />
                         <Route path='/contacts' element={<Contacts />} />
                         <Route path='/about' element={<About />} />
                         <Route element={<Notfound />} />

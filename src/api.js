@@ -5,9 +5,10 @@ const getMealbyId = async (mealId) => {
     return await response.json();
 };
 
-const getAllCategories = async () => {
+async function getAllCategories(){
     const response = await fetch(API_URL + 'categories.php');
-    return await response.json();
+    const data = await response.json();
+    return data
 };
 
 const getFilteredCategory = async (categoryName) => {

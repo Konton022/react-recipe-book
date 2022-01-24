@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className='page-footer'>
+        <footer className='page-footer grey'>
             <div className='footer-copyright'>
                 <div className='container'>
                     © Copyright Text
