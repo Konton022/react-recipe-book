@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Contacts from './pages/Contacts';
 import About from './pages/About';
+import Category from './pages/Category';
 import Notfound from './pages/NotFound';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
                         <Route exact path='/' element={<Home />} />
                         <Route path='/contacts' element={<Contacts />} />
                         <Route path='/about' element={<About />} />
+                        <Route path='category/:name' element={<Category />} />
                         <Route element={<Notfound />} />
                     </Routes>
                 </main>
