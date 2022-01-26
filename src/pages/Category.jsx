@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getFilteredCategory } from '../api';
 import { MealsList } from '../components/MealsList';
 import Preloader from '../components/Preloader';
 
 const Category = () => {
     const [meals, setMeals] = useState([]);
+    const navigator = useNavigate();
 
     const { name } = useParams();
     useEffect(() => {
@@ -13,7 +14,9 @@ const Category = () => {
     }, [name]);
     return (
         <>
-            <button className='btn'>Go Back</button>
+            <button className='btn' onClick={() => navigator('/')}>
+                Go Back
+            </button>
             {!meals.length ? <Preloader /> : <MealsList meals={meals} />}
         </>
     );
