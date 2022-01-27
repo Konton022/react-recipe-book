@@ -64,7 +64,7 @@ const MealRecipe = ({ recipe }) => {
                     </div>
                     {strYoutube ? (
                         <div className='card-content'>
-                            <h4>Video Recipe</h4>
+                            <h5>Video Recipe</h5>
                             <iframe
                                 width='560'
                                 height='315'
