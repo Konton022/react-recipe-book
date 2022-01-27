@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { getAllCategories } from '../api';
 import { CategoryList } from '../components/CategoryList';
 import Preloader from '../components/Preloader';
@@ -8,11 +9,21 @@ const Home = () => {
     const [catalog, setCatalog] = useState([]);
     const [filteredCatalog, setFilteredCatalog] = useState([]);
 
+    const { pathname, search } = useLocation();
+    const value = useNavigate();
+
+    // console.log(value);
+    // console.log('loc', pathname, search);
+
     const handleSearch = (str) => {
         console.log('str', str);
-        catalog.filter((item) => {
-            return item.strCategory.toLowerCase().includes(str.toLowerCase());
-        });
+        setFilteredCatalog(
+            catalog.filter((item) => {
+                return item.strCategory
+                    .toLowerCase()
+                    .includes(str.toLowerCase());
+            })
+        );
     };
     useEffect(() => {
         getAllCategories().then((resp) => {
