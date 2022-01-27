@@ -13,7 +13,7 @@ const Meal = () => {
     }, [idMeal]);
     return (
         <>
-            {!recipe.hasOwnProperty('idMeal') ? (
+            {!recipe.idMeal ? (
                 <Preloader />
             ) : (
                 <MealRecipe recipe={recipe} />

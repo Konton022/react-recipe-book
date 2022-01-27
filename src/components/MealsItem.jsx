@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MealsItem = (props) => {
+    
     const { idMeal, strMeal, strMealThumb } = props;
 
     return (
