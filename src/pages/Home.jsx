@@ -10,7 +10,7 @@ const Home = () => {
     const [filteredCatalog, setFilteredCatalog] = useState([]);
 
     const { pathname, search } = useLocation();
-    const value = useNavigate();
+    const navigate = useNavigate();
 
     // console.log(value);
     // console.log('loc', pathname, search);
@@ -24,13 +24,22 @@ const Home = () => {
                     .includes(str.toLowerCase());
             })
         );
+        navigate({ pathname, search: `?search=${str}` });
     };
     useEffect(() => {
         getAllCategories().then((resp) => {
             setCatalog(resp.categories);
-            setFilteredCatalog(resp.categories);
+            setFilteredCatalog(
+                search
+                    ? resp.categories.filter((item) =>
+                          item.strCategory
+                              .toLowerCase()
+                              .includes(search.split('=')[1])
+                      )
+                    : resp.categories
+            );
         });
-    }, []);
+    }, [search]);
 
     return (
         <div>

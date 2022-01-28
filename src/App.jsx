@@ -11,7 +11,7 @@ import Notfound from './pages/NotFound';
 function App() {
     return (
         <>
-            <BrowserRouter>
+            <BrowserRouter basename='/react-recipe-book'>
                 <Header />
                 <main className='container content'>
                     <Routes>
